@@ -11,7 +11,9 @@ func (h MyHandler) ServeHTTP(res http.ResponseWriter, req *http.Request) {
 }
 
 func main() {
-	err := http.ListenAndServe(`:8080`, nil)
+	var h MyHandler
+
+	err := http.ListenAndServe(`:8080`, h)
 	if err != nil {
 		panic(err)
 	}
