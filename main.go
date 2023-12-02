@@ -12,8 +12,10 @@ func apiPage(req http.ResponseWriter, res *http.Request) {
 
 func main() {
 
-	http.HandleFunc("/", mainPage)
-	http.HandleFunc("/api", apiPage)
+	mux := http.NewServeMux()
+
+	mux.HandleFunc("/", mainPage)
+	mux.HandleFunc("/api/", apiPage)
 
 	err := http.ListenAndServe(`:8080`, nil)
 	if err != nil {
