@@ -1,6 +1,9 @@
 package main
 
-import "testing"
+import (
+	"github.com/stretchr/testify/assert"
+	"testing"
+)
 
 func TestUser_FullName(t *testing.T) {
 	tests := []struct {
@@ -34,9 +37,8 @@ func TestUser_FullName(t *testing.T) {
 				LastName:  test.lastName,
 			}
 
-			if fullname := user.FullName(); fullname != test.fullName {
-				t.Errorf("Expected %s, but got %s", test.fullName, fullname)
-			}
+			v := user.FullName()
+			assert.Equal(t, test.fullName, v)
 		})
 	}
 }
