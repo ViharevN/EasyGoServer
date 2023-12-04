@@ -1,6 +1,9 @@
 package main
 
-import "testing"
+import (
+	"fmt"
+	"testing"
+)
 
 func TestFamily_AddNew(t *testing.T) {
 	tests := []struct {
@@ -37,6 +40,7 @@ func TestFamily_AddNew(t *testing.T) {
 			if err != test.expectedErr {
 				t.Errorf("Expected error %v, but got %v", test.expectedErr, err)
 			}
+			fmt.Print("sfsdfsdf")
 		})
 	}
 }
